@@ -292,7 +292,7 @@ export default class Pages extends PureComponent {
         onScrollBeginDrag={this.onScrollBeginDrag}
         onScrollEndDrag={this.onScrollEndDrag}
         contentOffset={contentOffset}
-        scrollEnabled={scrollEnabled || this.getCurrentPageIndex() === 0}
+        scrollEnabled={scrollEnabled !== undefined ? scrollEnabled : this.getCurrentPageIndex() === 0}
         ref={this.scrollRef}
       >
         {Children.map(children, this.renderPage, this)}
