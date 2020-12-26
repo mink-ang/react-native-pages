@@ -201,6 +201,10 @@ export default class Pages extends PureComponent {
       });
     }
   }
+  
+  getCurrentPageIndex() {
+    return Math.floor(this.progress);
+  }
 
   isDragging() {
     return 0 === this.scrollState;
