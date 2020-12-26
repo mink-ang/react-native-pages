@@ -26,7 +26,7 @@ export default class Pages extends PureComponent {
     showsVerticalScrollIndicator: false,
     scrollEventThrottle: 25,
     scrollsToTop: false,
-
+    scrollEnabled: true,
     indicatorColor: 'rgb(255, 255, 255)',
     indicatorOpacity: 0.30,
 
@@ -264,7 +264,7 @@ export default class Pages extends PureComponent {
   }
 
   renderPages(props) {
-    let { horizontal, rtl, style, children } = this.props;
+    let { horizontal, rtl, style, children, scrollEnabled } = this.props;
     let { [horizontal? 'width' : 'height']: base, layout } = this.state;
 
     if (!layout) {
@@ -288,6 +288,7 @@ export default class Pages extends PureComponent {
         onScrollBeginDrag={this.onScrollBeginDrag}
         onScrollEndDrag={this.onScrollEndDrag}
         contentOffset={contentOffset}
+        scrollEnabled={scrollEnabled}
         ref={this.scrollRef}
       >
         {Children.map(children, this.renderPage, this)}
